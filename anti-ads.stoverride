@@ -16,7 +16,7 @@ rules:
   # - DOMAIN,wxapp.tc.qq.com,DIRECT
   # - DOMAIN,self.events.data.microsoft.com,DIRECT
   # - DOMAIN,edge.activity.windows.com,DIRECT
-  - DOMAIN, xifanacg.com, DIRECT
-  - DOMAIN, linovelib.com, DIRECT
+  - DOMAIN-SUFFIX, xifanacg.com, Proxy
+  - DOMAIN-SUFFIX, linovelib.com, Proxy
 
   - RULE-SET,anti-ad,REJECT-DROP,no-track
