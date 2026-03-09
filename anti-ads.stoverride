@@ -16,5 +16,6 @@ rules:
   # - DOMAIN,wxapp.tc.qq.com,DIRECT
   # - DOMAIN,self.events.data.microsoft.com,DIRECT
   # - DOMAIN,edge.activity.windows.com,DIRECT
+  - DOMAIN, dm.xifanacg.com, DIRECT
 
   - RULE-SET,anti-ad,REJECT-DROP,no-track
