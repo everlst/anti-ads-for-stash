@@ -28,4 +28,4 @@ rules:
   - RULE-SET,reject-lite,REJECT-DROP
 
   # 先观察 1~2 天，觉得还不够再打开这一条
-  - RULE-SET,bm7-ads,REJECT-DROP
+  # - RULE-SET,bm7-ads,REJECT-DROP
