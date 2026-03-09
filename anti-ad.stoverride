@@ -1,31 +1,20 @@
-name: adblock-pack
-desc: anti-ad + reject + optional bm7
+name: '广告拦截增强'
+desc: |-
+  在现有机场订阅基础上追加广告/追踪拦截
+  仅做域名层拦截，稳定、维护成本低
 
 rule-providers:
   anti-ad:
     behavior: domain
     format: yaml
-    url: https://anti-ad.net/clash.yaml
-    interval: 86400
-
-  reject-lite:
-    behavior: domain
-    format: text
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
-    interval: 86400
-
-  bm7-ads:
-    behavior: domain
-    format: yaml
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Domain.yaml
+    url: https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml
     interval: 86400
 
 rules:
-  # 误杀放行写在最前面，例如：
-  # - DOMAIN-SUFFIX,example.com,DIRECT
+  # 如果有误杀，把需要放行的域名写在 RULE-SET 前面
+  # 例：
+  # - DOMAIN,wxapp.tc.qq.com,DIRECT
+  # - DOMAIN,self.events.data.microsoft.com,DIRECT
+  # - DOMAIN,edge.activity.windows.com,DIRECT
 
-  - RULE-SET,anti-ad,REJECT-DROP
-  - RULE-SET,reject-lite,REJECT-DROP
-
-  # 先观察 1~2 天，觉得还不够再打开这一条
-  - RULE-SET,bm7-ads,REJECT-DROP
+  - RULE-SET,anti-ad,REJECT-DROP,no-track
