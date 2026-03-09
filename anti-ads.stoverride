@@ -1,4 +1,5 @@
-name: adblock-lite-2layer
+name: adblock-webview
+
 append-rule-providers:
   anti-ad:
     type: http
@@ -19,3 +20,20 @@ append-rule-providers:
 append-rules:
   - RULE-SET,anti-ad,REJECT-DROP,no-track
   - RULE-SET,reject-lite,REJECT-DROP,no-track
+  - SCRIPT,quic,REJECT
+
+script:
+  shortcuts:
+    quic: network == 'udp' and dst_port == 443
+
+http:
+  mitm:
+    - '*.example.com'
+    - 'ads.example.com'
+    - 'api.example.com'
+
+  url-rewrite:
+    - ^https?://ads\.example\.com/.* reject
+    - ^https?://api\.example\.com/v1/ad/.* reject-array
+    - ^https?://api\.example\.com/v1/banner/.* reject-dict
+    - ^https?://cdn\.example\.com/ads?/.* reject-img
