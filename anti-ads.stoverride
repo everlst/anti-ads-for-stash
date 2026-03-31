@@ -18,5 +18,6 @@ rules:
   # - DOMAIN,edge.activity.windows.com,DIRECT
   - DOMAIN-SUFFIX, xifanacg.com, Proxy
   - DOMAIN-SUFFIX, linovelib.com, Proxy
+  - DOMAIN-SUFFIX, nodeseek.com, DIRECT
 
   - RULE-SET,anti-ad,REJECT-DROP,no-track
